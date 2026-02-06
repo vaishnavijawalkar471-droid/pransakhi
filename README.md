@@ -60,40 +60,7 @@ PRANSAKHI is a **voice-first, offline-capable healthcare assistant** designed fo
 - **No server required** - runs entirely in browser
 - **No dependencies** - pure HTML, CSS, JavaScript
 
-### Installation
 
-1. **Download or clone the project**
-```bash
-git clone <repository-url>
-cd pransakhi
-```
-
-2. **Open in browser**
-   
-   **Option A: Direct File**
-   - Simply double-click `index.html`
-   - Or drag `index.html` into your browser
-   
-   **Option B: Local Server (Recommended for PWA features)**
-   ```bash
-   # Python 3
-   python -m http.server 8000
-   
-   # Python 2
-   python -m SimpleHTTPServer 8000
-   
-   # Node.js
-   npx serve
-   ```
-   
-   Then open: `http://localhost:8000`
-
-3. **Enable microphone** (for voice features)
-   - Browser will ask for permission
-   - Grant microphone access when prompted
-   - Voice features work best in Chrome/Edge
-
----
 
 ## 📂 Project Structure
 
@@ -313,45 +280,9 @@ pransakhi/
 - [ ] Insurance claim assistance
 
 ---
-
-## 🎯 Hackathon Pitch Points
-
-### Problem
-- 65% of India's population lives in rural areas
-- Limited access to healthcare professionals
-- Language and literacy barriers
-- Smartphone penetration growing rapidly
-
-### Solution
-- Voice-first interface (no typing needed)
-- Works offline (no internet required)
-- Simple, large UI (elderly-friendly)
-- Free and accessible to all
-
-### Impact
-- **Immediate**: Symptom triage saves lives
-- **Preventive**: Medicine adherence improves health
-- **Scalable**: Can serve millions at zero marginal cost
-- **Equitable**: Bridges urban-rural healthcare gap
-
-### Tech Innovation
-- Progressive Web App (cross-platform)
-- Voice AI (hands-free)
-- Offline-first (no connectivity needed)
-- Privacy-focused (data stays on device)
-
----
-
 ## 🤝 Contributing
 
 This is a hackathon prototype built in 24 hours. Contributions welcome!
-
-### To Add Features:
-1. Fork the repository
-2. Create feature branch
-3. Add your code
-4. Test thoroughly
-5. Submit pull request
 
 ### Code Style:
 - Use semantic HTML
@@ -395,33 +326,6 @@ Built with ❤️ for hackathon demo
 - Ensure using HTTPS or localhost
 - Try Chrome/Edge browser
 - Check manifest.json is loading
-
----
-
-## 🎉 Demo Tips for Judges
-
-1. **Start with voice demo**: Show the wow factor first
-2. **Try emergency flow**: Demonstrates critical use case
-3. **Show offline mode**: Disable network, still works
-4. **Add medicine reminder**: Show persistence
-5. **Check history**: Show data retention
-6. **Highlight accessibility**: Large buttons, voice, simple language
-
-### Sample Demo Script (2 minutes):
-
-> "PRANSAKHI is a voice-first healthcare assistant for rural India. 
-> 
-> [TAP MIC] I'll speak: 'I have a fever and cough'
-> 
-> [SHOWS ANALYSIS] It instantly analyzes and gives advice in both text and voice. Notice it classified this as MEDIUM RISK and suggests seeing a doctor.
-> 
-> [NAVIGATE TO MEDICINE] I can set reminders - 'Paracetamol at 9 AM' - and it saves locally.
-> 
-> [SHOW EMERGENCY] For emergencies, one tap calls ambulance and gives first aid instructions.
-> 
-> [DISABLE NETWORK] Most importantly - it works completely offline. No internet needed.
-> 
-> Built in 24 hours with just HTML, CSS, and JavaScript. Ready to help millions."
 
 ---
 
