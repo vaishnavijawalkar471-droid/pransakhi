@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#4CAF50">
-    <meta name="description" content="PRANSAKHI - Your Voice-Based Offline Healthcare Assistant">
+    <meta name="description" content="PRANSAKHI - Your Voice-Based Multilingual Healthcare Assistant">
     
-    <!-- PWA Meta Tags -->
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon-192.png">
     
@@ -14,12 +13,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- App Container -->
     <div id="app">
         
-        <!-- Splash Screen -->
-        <div id="splash-screen" class="screen active">
-            <div class="splash-content">
+        <!-- Language Selection Screen -->
+        <div id="language-screen" class="screen active">
+            <div class="language-content">
                 <div class="logo-container">
                     <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="50" r="45" fill="#4CAF50"/>
@@ -28,11 +26,41 @@
                     </svg>
                 </div>
                 <h1 class="app-title">PRANSAKHI</h1>
-                <p class="app-subtitle">Your Healthcare Companion</p>
-                <div class="loading-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <p class="language-subtitle" data-i18n="selectLanguage">Select Your Language / अपनी भाषा चुनें</p>
+                
+                <div class="language-grid">
+                    <button class="language-card" data-lang="en" data-region="general">
+                        <span class="lang-icon">🇮🇳</span>
+                        <span class="lang-name">English</span>
+                    </button>
+                    <button class="language-card" data-lang="hi" data-region="north">
+                        <span class="lang-icon">🇮🇳</span>
+                        <span class="lang-name">हिंदी</span>
+                    </button>
+                    <button class="language-card" data-lang="mr" data-region="west">
+                        <span class="lang-icon">🇮🇳</span>
+                        <span class="lang-name">मराठी</span>
+                    </button>
+                    <button class="language-card" data-lang="bn" data-region="east">
+                        <span class="lang-icon">🇮🇳</span>
+                        <span class="lang-name">বাংলা</span>
+                    </button>
+                    <button class="language-card" data-lang="pa" data-region="north">
+                        <span class="lang-icon">🇮🇳</span>
+                        <span class="lang-name">ਪੰਜਾਬੀ</span>
+                    </button>
+                    <button class="language-card" data-lang="ta" data-region="south">
+                        <span class="lang-icon">🇮🇳</span>
+                        <span class="lang-name">தமிழ்</span>
+                    </button>
+                    <button class="language-card" data-lang="te" data-region="south">
+                        <span class="lang-icon">🇮🇳</span>
+                        <span class="lang-name">తెలుగు</span>
+                    </button>
+                    <button class="language-card" data-lang="gu" data-region="west">
+                        <span class="lang-icon">🇮🇳</span>
+                        <span class="lang-name">ગુજરાતી</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -41,19 +69,23 @@
         <div id="home-screen" class="screen">
             <header class="app-header">
                 <h2>PRANSAKHI</h2>
-                <span class="offline-badge">
-                    <span class="status-dot"></span>
-                    Works Offline
-                </span>
+                <div class="header-actions">
+                    <span class="offline-badge">
+                        <span class="status-dot"></span>
+                        <span data-i18n="worksOffline">Works Offline</span>
+                    </span>
+                    <button class="lang-switch-btn" id="change-language">
+                        <span id="current-lang">EN</span>
+                    </button>
+                </div>
             </header>
 
             <div class="main-content">
                 <div class="greeting">
-                    <h3>How can I help you today?</h3>
-                    <p>Tap the mic and tell me your symptoms</p>
+                    <h3 data-i18n="greeting">How can I help you today?</h3>
+                    <p data-i18n="tapMic">Tap the mic and describe your symptoms</p>
                 </div>
 
-                <!-- Main Mic Button -->
                 <div class="mic-container">
                     <button id="main-mic-btn" class="mic-button" aria-label="Start voice input">
                         <svg class="mic-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -61,27 +93,32 @@
                             <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
                         </svg>
                     </button>
-                    <p class="mic-label">Tap to speak</p>
+                    <p class="mic-label" data-i18n="tapToSpeak">Tap to speak</p>
                 </div>
 
-                <!-- Quick Actions -->
                 <div class="quick-actions">
                     <button class="action-card" data-screen="symptoms">
                         <div class="action-icon">🩺</div>
-                        <h4>Check Symptoms</h4>
-                        <p>Get health advice</p>
+                        <h4 data-i18n="checkSymptoms">Check Symptoms</h4>
+                        <p data-i18n="getHealthAdvice">Get health advice</p>
+                    </button>
+
+                    <button class="action-card" data-screen="hospitals">
+                        <div class="action-icon">🏥</div>
+                        <h4 data-i18n="nearbyHospitals">Nearby Hospitals</h4>
+                        <p data-i18n="findClinics">Find clinics & doctors</p>
                     </button>
 
                     <button class="action-card" data-screen="medicine">
                         <div class="action-icon">💊</div>
-                        <h4>Medicine Reminder</h4>
-                        <p>Never miss a dose</p>
+                        <h4 data-i18n="medicineReminder">Medicine Reminder</h4>
+                        <p data-i18n="neverMiss">Never miss a dose</p>
                     </button>
 
                     <button class="action-card emergency-card" data-screen="emergency">
                         <div class="action-icon">🚨</div>
-                        <h4>Emergency Help</h4>
-                        <p>Quick assistance</p>
+                        <h4 data-i18n="emergencyHelp">Emergency Help</h4>
+                        <p data-i18n="quickAssistance">Quick assistance</p>
                     </button>
                 </div>
             </div>
@@ -89,26 +126,106 @@
             <nav class="bottom-nav">
                 <button class="nav-item active" data-screen="home">
                     <span class="nav-icon">🏠</span>
-                    <span class="nav-label">Home</span>
+                    <span class="nav-label" data-i18n="home">Home</span>
+                </button>
+                <button class="nav-item" data-screen="hospitals">
+                    <span class="nav-icon">🏥</span>
+                    <span class="nav-label" data-i18n="hospitals">Hospitals</span>
                 </button>
                 <button class="nav-item" data-screen="medicine">
                     <span class="nav-icon">💊</span>
-                    <span class="nav-label">Reminders</span>
+                    <span class="nav-label" data-i18n="reminders">Reminders</span>
                 </button>
                 <button class="nav-item" data-screen="history">
                     <span class="nav-icon">📋</span>
-                    <span class="nav-label">History</span>
+                    <span class="nav-label" data-i18n="history">History</span>
                 </button>
             </nav>
         </div>
 
-        <!-- Listening Screen -->
+        <!-- Symptom Selection Screen (MCQ Based) -->
+        <div id="symptoms-screen" class="screen">
+            <header class="app-header">
+                <button class="back-btn" data-back="true">
+                    <span>←</span>
+                </button>
+                <h2 data-i18n="checkSymptoms">Check Symptoms</h2>
+            </header>
+
+            <div class="main-content">
+                <div class="symptom-flow">
+                    <!-- Step 1: Body Part Selection -->
+                    <div class="symptom-step active" id="step-body-part">
+                        <h3 data-i18n="whereFeeling">Where are you feeling discomfort?</h3>
+                        <div class="mcq-grid" id="body-parts-grid">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Specific Symptom -->
+                    <div class="symptom-step" id="step-symptom">
+                        <h3 data-i18n="whatFeeling">What are you feeling?</h3>
+                        <div class="mcq-grid" id="symptoms-grid">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Severity -->
+                    <div class="symptom-step" id="step-severity">
+                        <h3 data-i18n="howSevere">How severe is it?</h3>
+                        <div class="severity-options">
+                            <button class="severity-btn" data-severity="mild">
+                                <span class="severity-icon">😊</span>
+                                <span data-i18n="mild">Mild</span>
+                            </button>
+                            <button class="severity-btn" data-severity="moderate">
+                                <span class="severity-icon">😐</span>
+                                <span data-i18n="moderate">Moderate</span>
+                            </button>
+                            <button class="severity-btn" data-severity="severe">
+                                <span class="severity-icon">😣</span>
+                                <span data-i18n="severe">Severe</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Duration -->
+                    <div class="symptom-step" id="step-duration">
+                        <h3 data-i18n="howLong">How long have you had this?</h3>
+                        <div class="duration-options">
+                            <button class="duration-btn" data-duration="few-hours">
+                                <span data-i18n="fewHours">Few hours</span>
+                            </button>
+                            <button class="duration-btn" data-duration="1-2-days">
+                                <span data-i18n="1-2days">1-2 days</span>
+                            </button>
+                            <button class="duration-btn" data-duration="3-5-days">
+                                <span data-i18n="3-5days">3-5 days</span>
+                            </button>
+                            <button class="duration-btn" data-duration="week-plus">
+                                <span data-i18n="weekPlus">More than a week</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Voice Input Alternative -->
+                    <div class="voice-alternative">
+                        <button id="use-voice-btn" class="voice-alt-btn">
+                            <span>🎤</span>
+                            <span data-i18n="orUseVoice">Or describe in your voice</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voice Input Screen -->
         <div id="listening-screen" class="screen">
             <header class="app-header">
                 <button class="back-btn" data-back="true">
                     <span>←</span>
                 </button>
-                <h2>Listening...</h2>
+                <h2 data-i18n="listening">Listening...</h2>
             </header>
 
             <div class="main-content centered">
@@ -124,33 +241,23 @@
                     </svg>
                 </div>
 
-                <p class="listening-text">I'm listening to your symptoms...</p>
+                <p class="listening-text" data-i18n="speakNow">Speak now in your language...</p>
                 
                 <div class="transcript-box">
-                    <p id="transcript-text">Speak now or type below...</p>
+                    <p id="transcript-text" data-i18n="listeningPrompt">Tell me your symptoms...</p>
                 </div>
 
-                <div class="input-fallback">
-                    <input 
-                        type="text" 
-                        id="symptom-input" 
-                        placeholder="Or type your symptoms here..."
-                        autocomplete="off"
-                    />
-                    <button id="submit-symptoms" class="primary-btn">Analyze</button>
-                </div>
-
-                <button id="stop-listening" class="secondary-btn">Stop</button>
+                <button id="stop-listening" class="secondary-btn" data-i18n="stop">Stop</button>
             </div>
         </div>
 
-        <!-- Result/Advice Screen -->
+        <!-- Result Screen with Regional Remedies -->
         <div id="result-screen" class="screen">
             <header class="app-header">
                 <button class="back-btn" data-back="true">
                     <span>←</span>
                 </button>
-                <h2>Health Advice</h2>
+                <h2 data-i18n="healthAdvice">Health Advice</h2>
             </header>
 
             <div class="main-content">
@@ -161,11 +268,56 @@
                 <div class="action-buttons">
                     <button id="read-advice" class="primary-btn">
                         <span class="btn-icon">🔊</span>
-                        Read Aloud
+                        <span data-i18n="readAloud">Read Aloud</span>
                     </button>
-                    <button class="secondary-btn" data-screen="home">
+                    <button id="find-nearby-hospital" class="secondary-btn">
+                        <span class="btn-icon">🏥</span>
+                        <span data-i18n="findNearbyHospital">Find Nearby Hospital</span>
+                    </button>
+                    <button class="secondary-btn" data-screen="home" data-i18n="backHome">
                         Back to Home
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospitals & Clinics Finder -->
+        <div id="hospitals-screen" class="screen">
+            <header class="app-header">
+                <button class="back-btn" data-back="true">
+                    <span>←</span>
+                </button>
+                <h2 data-i18n="nearbyHealthcare">Nearby Healthcare</h2>
+            </header>
+
+            <div class="main-content">
+                <div class="location-input">
+                    <h3 data-i18n="yourLocation">Your Location</h3>
+                    <div class="location-controls">
+                        <input type="text" id="location-input" placeholder="Enter city or area" data-i18n-placeholder="enterLocation">
+                        <button id="use-current-location" class="icon-btn">
+                            <span>📍</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hospital-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <span data-i18n="all">All</span>
+                    </button>
+                    <button class="filter-btn" data-filter="hospital">
+                        <span data-i18n="hospitals">Hospitals</span>
+                    </button>
+                    <button class="filter-btn" data-filter="clinic">
+                        <span data-i18n="clinics">Clinics</span>
+                    </button>
+                    <button class="filter-btn" data-filter="pharmacy">
+                        <span data-i18n="pharmacies">Pharmacies</span>
+                    </button>
+                </div>
+
+                <div id="hospitals-list" class="hospitals-list">
+                    <!-- Will be populated by JS -->
                 </div>
             </div>
         </div>
@@ -176,43 +328,45 @@
                 <button class="back-btn" data-back="true">
                     <span>←</span>
                 </button>
-                <h2>Medicine Reminders</h2>
+                <h2 data-i18n="medicineReminders">Medicine Reminders</h2>
             </header>
 
             <div class="main-content">
                 <div class="reminder-form">
-                    <h3>Add New Reminder</h3>
+                    <h3 data-i18n="addNewReminder">Add New Reminder</h3>
                     
                     <div class="form-group">
-                        <label for="medicine-name">Medicine Name</label>
+                        <label for="medicine-name" data-i18n="medicineName">Medicine Name</label>
                         <input 
                             type="text" 
                             id="medicine-name" 
                             placeholder="e.g., Paracetamol"
+                            data-i18n-placeholder="medicineNamePlaceholder"
                             autocomplete="off"
                         />
                     </div>
 
                     <div class="form-group">
-                        <label for="medicine-time">Time</label>
+                        <label for="medicine-time" data-i18n="time">Time</label>
                         <input type="time" id="medicine-time" />
                     </div>
 
                     <div class="form-group">
-                        <label for="medicine-dosage">Dosage</label>
+                        <label for="medicine-dosage" data-i18n="dosage">Dosage</label>
                         <input 
                             type="text" 
                             id="medicine-dosage" 
                             placeholder="e.g., 1 tablet"
+                            data-i18n-placeholder="dosagePlaceholder"
                             autocomplete="off"
                         />
                     </div>
 
-                    <button id="add-reminder" class="primary-btn">Add Reminder</button>
+                    <button id="add-reminder" class="primary-btn" data-i18n="addReminder">Add Reminder</button>
                 </div>
 
                 <div class="reminders-list">
-                    <h3>Your Reminders</h3>
+                    <h3 data-i18n="yourReminders">Your Reminders</h3>
                     <div id="reminders-container">
                         <!-- Reminders will be injected here -->
                     </div>
@@ -226,20 +380,20 @@
                 <button class="back-btn" data-back="true">
                     <span>←</span>
                 </button>
-                <h2>Emergency Help</h2>
+                <h2 data-i18n="emergencyHelp">Emergency Help</h2>
             </header>
 
             <div class="main-content centered">
                 <div class="emergency-container">
                     <div class="emergency-icon">🚨</div>
-                    <h3>Need Immediate Help?</h3>
-                    <p>Choose an option below</p>
+                    <h3 data-i18n="needHelp">Need Immediate Help?</h3>
+                    <p data-i18n="chooseOption">Choose an option below</p>
 
                     <div class="emergency-actions">
                         <button id="call-ambulance" class="emergency-btn">
                             <span class="btn-icon">🚑</span>
                             <div>
-                                <strong>Call Ambulance</strong>
+                                <strong data-i18n="callAmbulance">Call Ambulance</strong>
                                 <small>Emergency: 108</small>
                             </div>
                         </button>
@@ -247,27 +401,24 @@
                         <button id="notify-family" class="emergency-btn">
                             <span class="btn-icon">👨‍👩‍👧</span>
                             <div>
-                                <strong>Notify Family</strong>
-                                <small>Send alert to contacts</small>
+                                <strong data-i18n="notifyFamily">Notify Family</strong>
+                                <small data-i18n="sendAlert">Send alert to contacts</small>
                             </div>
                         </button>
 
                         <button id="emergency-instructions" class="emergency-btn">
                             <span class="btn-icon">📖</span>
                             <div>
-                                <strong>First Aid Guide</strong>
-                                <small>Emergency instructions</small>
+                                <strong data-i18n="firstAid">First Aid Guide</strong>
+                                <small data-i18n="emergencyInstructions">Emergency instructions</small>
                             </div>
                         </button>
                     </div>
 
                     <div class="emergency-tips">
-                        <h4>While you wait:</h4>
-                        <ul>
-                            <li>Stay calm and breathe deeply</li>
-                            <li>If possible, lie down in a safe place</li>
-                            <li>Keep phone nearby</li>
-                            <li>Don't eat or drink anything</li>
+                        <h4 data-i18n="whileWait">While you wait:</h4>
+                        <ul id="emergency-tips-list">
+                            <!-- Will be populated with translated tips -->
                         </ul>
                     </div>
                 </div>
@@ -280,7 +431,7 @@
                 <button class="back-btn" data-back="true">
                     <span>←</span>
                 </button>
-                <h2>Consultation History</h2>
+                <h2 data-i18n="consultationHistory">Consultation History</h2>
             </header>
 
             <div class="main-content">
@@ -300,7 +451,10 @@
 
     </div>
 
-    <script src="symptom-data.js"></script>
-    <script src="script.js"></script>
+    <script src="translations.js"></script>
+    <script src="regional-remedies.js"></script>
+    <script src="symptom-data-enhanced.js"></script>
+    <script src="hospitals-data.js"></script>
+    <script src="script-enhanced.js"></script>
 </body>
 </html>
