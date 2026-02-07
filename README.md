@@ -50,6 +50,43 @@ PRANSAKHI is a **voice-first, offline-capable healthcare assistant** designed fo
 - Installable on mobile devices
 - Native app-like experience
 - Fast and responsive
+- #### 1. **8 Regional Languages Support**
+- English, Hindi, Marathi, Bengali, Punjabi, Tamil, Telugu, Gujarati
+- Complete UI translation
+- **Voice recognition in all languages** 🎤
+- **Speech output in native languages** 🔊
+- **Welcome greetings spoken in selected language**
+- **Results and remedies read aloud automatically**
+
+#### 2. **MCQ-Based Symptom Selection**
+- NO TYPING REQUIRED - Voice OR MCQ
+- Step-by-step guided flow:
+  1. Select body part (Head, Chest, Stomach, etc.)
+  2. Choose specific symptom
+  3. Rate severity (Mild/Moderate/Severe)
+  4. Duration (Hours to Weeks)
+- Large, accessible buttons with icons
+- Perfect for elderly and low-literacy users
+
+#### 3. **Regional Home Remedies**
+- North India (Hindi/Punjabi): Tulsi, Ajwain, Haldi-based remedies
+- West India (Marathi/Gujarati): Neem, Kokum, Sandalwood remedies
+- East India (Bengali): Traditional Bengali home treatments
+- South India (Tamil/Telugu): Coriander, Pepper rasam remedies
+- Remedies shown in user's selected language
+
+#### 4. **Advanced Illness Detection**
+- Synonym tracking for critical conditions
+- Detects emergencies: Heart attack, Stroke, Breathing emergencies
+- Multiple ways to describe same symptom
+- Intelligent pattern matching
+
+#### 5. **Hospital & Clinic Finder**
+- Find nearby hospitals, clinics, pharmacies
+- Filter by type
+- Shows distance, phone, address
+- One-tap calling
+- Location-based results
 
 ---
 
