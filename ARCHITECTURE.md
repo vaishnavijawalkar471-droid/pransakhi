@@ -1,4 +1,4 @@
-# PRANSAKHI - Technical Architecture
+# PRANSAKHI - Technical Architecture  
 
 ## System Overview
 
